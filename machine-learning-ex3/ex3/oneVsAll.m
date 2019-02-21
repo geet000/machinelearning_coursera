@@ -57,9 +57,6 @@ for c = 1:num_labels
   all_theta(c,:) = theta';
 endfor
 
-size(X)
-size(y)
-size(all_theta)
 
 
 
