@@ -62,7 +62,6 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
-
 X = [ones(m, 1) X];
 Z2 = (Theta1 * X')';
 A2 = sigmoid(Z2);
@@ -78,15 +77,34 @@ J = J + J_Reg;
 delta3 = H - y_matrix;
 delta2 = (delta3 * Theta2(:,[2:end])) .* sigmoidGradient(Z2);
 
-Theta1_grad = delta2 ./ m;
-Theta2_grad = delta3 ./ m;
+d1 = (delta2' * X);
+size(d1);
+d2 = (delta3' * A2);
+size(d2);
+
+Theta1_grad = d1 ./ m;
+Theta2_grad = d2 ./ m;
+
+
 
 % size(delta2)
+<<<<<<< HEAD
 size(delta3);
 size(Theta2(:,[2:end]));
 % size(Z2)
 size(Theta1);
 size(Theta2);
+=======
+% size(X(:,2:end))
+% size(delta3)
+% size(A2)
+% size(Theta2(:,[2:end]))
+% size(sigmoidGradient(Z2))
+% size(Z2)
+% size(Theta1)
+% size(Theta2)
+
+>>>>>>> 2b7189f0eed24ae21b8df6d363b2cd5a2c993fb7
 
 
 
