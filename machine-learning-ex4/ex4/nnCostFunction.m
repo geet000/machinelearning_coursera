@@ -88,23 +88,11 @@ Theta2_grad = d2 ./ m;
 
 
 % size(delta2)
-<<<<<<< HEAD
 size(delta3);
 size(Theta2(:,[2:end]));
 % size(Z2)
 size(Theta1);
 size(Theta2);
-=======
-% size(X(:,2:end))
-% size(delta3)
-% size(A2)
-% size(Theta2(:,[2:end]))
-% size(sigmoidGradient(Z2))
-% size(Z2)
-% size(Theta1)
-% size(Theta2)
-
->>>>>>> 2b7189f0eed24ae21b8df6d363b2cd5a2c993fb7
 
 
 
