@@ -82,11 +82,11 @@ Theta1_grad = delta2 ./ m;
 Theta2_grad = delta3 ./ m;
 
 % size(delta2)
-size(delta3)
-size(Theta2(:,[2:end]))
+size(delta3);
+size(Theta2(:,[2:end]));
 % size(Z2)
-size(Theta1)
-size(Theta2)
+size(Theta1);
+size(Theta2);
 
 
 
