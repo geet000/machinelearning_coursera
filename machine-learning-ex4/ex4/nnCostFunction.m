@@ -78,8 +78,30 @@ J = sum(sum(-(yv .* log(H)) - ((1 - yv) .* log(1-H)))) ./ m;
 
 
 
+X = [ones(m, 1) X];
+Z2 = (Theta1 * X')';
+A2 = sigmoid(Z2);
+A2 = [ones(size(A2,1), 1) A2];
+Z3 = (Theta2 * A2')';
+H = sigmoid(Z3);
+y_matrix = eye(num_labels)(y,:);
 
+J = sum(sum(-y_matrix .* log(H) - (1 - y_matrix) .* log(1 - H))) ./ m;
+J_Reg = (sum(sum(Theta1(:,[2:end]) .^ 2)) + sum(sum(Theta2(:,[2:end]) .^ 2))) * (lambda/(2*m));
+J = J + J_Reg;
 
+delta3 = H - y_matrix;
+delta2 = (delta3 * Theta2(:,[2:end])) .* sigmoidGradient(Z2);
+
+Theta1_grad = delta2 ./ m;
+Theta2_grad = delta3 ./ m;
+
+% size(delta2)
+size(delta3)
+size(Theta2(:,[2:end]))
+% size(Z2)
+size(Theta1)
+size(Theta2)
 
 
 
