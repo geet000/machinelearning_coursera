@@ -82,8 +82,14 @@ size(d1);
 d2 = (delta3' * A2);
 size(d2);
 
-Theta1_grad = d1 ./ m;
-Theta2_grad = d2 ./ m;
+Theta1_reg = zeros(size(Theta1));
+Theta1_reg(:,[2:end]) = Theta1(:,[2:end]) .* (lambda / m);
+
+Theta2_reg = zeros(size(Theta2));
+Theta2_reg(:,[2:end]) = Theta2(:,[2:end]) .* (lambda / m);
+
+Theta1_grad = d1 ./ m + Theta1_reg;
+Theta2_grad = d2 ./ m + Theta2_reg;
 
 
 
